@@ -11,7 +11,7 @@ class tomagotchi {
 		this.image = image;
 		$('.flex-container').append(`<img src=${this.image}>`);
 		const temp = setInterval( () => {
-			this.age += 1;
+			this.age += .5;
 			if(!(this.age%5)){
 				console.log('poop');
 				this.morph(imageArray[imageCounter++])
@@ -24,8 +24,10 @@ class tomagotchi {
 			$('#bedtime-data').text(`Sleepiness: ${this.sleepiness}`)
 			if(this.hunger === 10 || this.boredom === 10 || this.sleepiness === 10){
 				clearInterval(temp);
+				$('button').off();
+				displayModal(this.name);
 			}
-		}, 1000)
+		}, 5000)
 	}
 
 	rename(newName){
@@ -33,10 +35,17 @@ class tomagotchi {
 	}
 
 	morph(newImage){
-		console.log('poop')
 		this.image = newImage;
 		$('img').attr('src',this.image);
 	}
+}
+
+const displayModal = (name) => {
+	$('p').text(`${name} has died! Your game has ended.`);
+	$('.modal').css('display','block');
+	$('.close').on('click', () => {
+		$('.modal').css('display','none');
+	});
 }
 
 $('#feed-me-button').on('click', () => {
