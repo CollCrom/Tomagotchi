@@ -9,9 +9,9 @@ class tomagotchi {
 		this.sleepiness = 1;
 		this.boredom = 1;
 		this.image = image;
-		$('.flex-container').append(`<img src=${this.image}>`);
+		$('.flex-container').append(`<img class='animated infinite bounce' src=${this.image}>`);
 		const temp = setInterval( () => {
-			this.age += .5;
+			this.age += 2;
 			if(!(this.age%5)){
 				console.log('poop');
 				this.morph(imageArray[imageCounter++])
