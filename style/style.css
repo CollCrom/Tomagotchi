@@ -1,7 +1,62 @@
 body {
 	margin: 0 auto;
+	background: url('../images/IMG_544236.png') no-repeat center center fixed;
+	background-size: cover;
+	height: 100%;
+	font-family: 'Comfortaa', cursive;
+}
+
+.toggle {
+	color: white;
+	background: black;
+}
+header {
+	flex-basis: 100%;
+	text-align: center;
+	font-size: 3em;
+}
+
+button {
+  	cursor: pointer;
+	flex-basis: 15%;
+	margin: 1%;
+	font-size: 2em;
+	border: none;
+	outline: none;
+	color: white;
+	background-color: black;
+	box-shadow: 0 9px #999;
+	border-radius: 20px;
+}
+
+button:active {
+  background-color: #000000;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+h1 {
+	text-align: center;
+	margin: 1%;
+	flex-basis: 15%;
 }
 
 .flex-container {
 	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-basis: 100%;
+}
+
+.data {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-basis: 100%
 }

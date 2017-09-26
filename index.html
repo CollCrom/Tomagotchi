@@ -2,11 +2,23 @@
 <html>
 <head>
 	<title></title>
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 	<link type="text/css" rel='stylesheet' href='style/style.css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 	<div class='flex-container'>
 		<header>Collin's Tomagotchi</header>
+		<div class='button'>
+			<button id='feed-me-button'>Feed Pet!</button>
+			<button id='playtime-button'>Playtime!</button>
+			<button id='bedtime-button'>Bedtime!</button>
+		</div>
+		<div class='data'>
+			<h1 id='feed-me-data'>Hunger: 1</h1>
+			<h1 id='playtime-data'>Boredom: 1</h1>
+			<h1 id='bedtime-data'>Sleepiness: 1</h1>
+		</div>
 	</div>
 
 <script type="text/javascript" src='script/app.js'></script>
