@@ -1,9 +1,10 @@
 imageArray = ['images/imageedit_12_4456809058.png','images/imageedit_17_7862663924.png','images/imageedit_23_3911380816.png'];
 imageCounter = 0;
-class tomagotchi {
-	constructor(name, image){
+class Tomagotchi {
+	constructor(image){
 		imageCounter++
-		this.name = name;
+		this.name = prompt('Enter a name for your Tomagotchi');
+		$('header').text(`${this.name}'s Tomagotchi`);
 		this.age = 1;
 		this.hunger = 1;
 		this.sleepiness = 1;
@@ -11,9 +12,8 @@ class tomagotchi {
 		this.image = image;
 		$('.flex-container').append(`<img class='animated infinite bounce' src=${this.image}>`);
 		const temp = setInterval( () => {
-			this.age += 2;
+			this.age += 1;
 			if(!(this.age%5)){
-				console.log('poop');
 				this.morph(imageArray[imageCounter++])
 			}
 			this.hunger++;
@@ -26,8 +26,9 @@ class tomagotchi {
 				clearInterval(temp);
 				$('button').off();
 				displayModal(this.name);
+				$('img').removeClass('infinite');
 			}
-		}, 5000)
+		}, 2000)
 	}
 
 	rename(newName){
@@ -51,8 +52,6 @@ const displayModal = (name) => {
 $('#feed-me-button').on('click', () => {
 	if($('body').css('background-color') !== "rgb(0, 0, 0)"){
 		jimbo.hunger--;
-		if(jimbo.hunger > 10)
-			jimbo.hunger = 10;
 		if(jimbo.hunger < 1)
 			jimbo.hunger = 1;
 		$('#feed-me-data').text(`Hunger: ${jimbo.hunger}`);	
@@ -62,8 +61,6 @@ $('#feed-me-button').on('click', () => {
 $('#playtime-button').on('click', () => {
 	if($('body').css('background-color') !== 'rgb(0, 0, 0)'){
 		jimbo.boredom--;
-		if(jimbo.boredom > 10)
-			jimbo.boredom = 10;
 		if(jimbo.boredom < 1)
 			jimbo.boredom = 1;
 		$('#playtime-data').text(`Boredom: ${jimbo.boredom}`);
@@ -72,13 +69,12 @@ $('#playtime-button').on('click', () => {
 
 $('#bedtime-button').on('click', (event) => {
 	$('body').toggleClass('toggle');
+	$('img').toggleClass('infinite');
 	if($('body').css('background-color') === "rgb(0, 0, 0)"){
 		jimbo.sleepiness--;
-		if(jimbo.sleepiness > 10)
-			jimbo.sleepiness = 10;
 		if(jimbo.sleepiness < 1)
 			jimbo.sleepiness = 1;
 		$('#bedtime-data').text(`Sleepiness: ${jimbo.sleepiness}`);
 	}
 })
-const jimbo = new tomagotchi('jim', imageArray[imageCounter]);
+const jimbo = new Tomagotchi(imageArray[imageCounter]);
